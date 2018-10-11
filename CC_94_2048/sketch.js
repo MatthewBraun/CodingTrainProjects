@@ -95,8 +95,8 @@ function addNumber() {
     let spot = random(options);
     let r = random(1);
     grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
-    colorNewNumber.push(spot.x);//save x location for color
-    colorNewNumber.push(spot.y);//save y location for color
+    colorNewNumber.push(spot.x); //save x location for color
+    colorNewNumber.push(spot.y); //save y location for color
   }
 }
 
@@ -140,7 +140,7 @@ function rotateGrid(grid) {
 
 function keyPressed() {
   if (!isGameOver()) {
-    move(keyCode);//call move function with the keyCode
+    move(keyCode); //call move function with the keyCode
   }
 }
 
@@ -199,8 +199,8 @@ function move(keyCode) {
 }
 
 function createEndGame() {
-  let theLink = "hello.mp4";//hello.mp4 is video at end screen
-  document.getElementById("video_pop").innerHTML = "<video id=\"the_Video\" controls autoplay loop><source src=\"" + theLink + "\" type=\"video/mp4\" ><img src=\"https://pbs.twimg.com/media/DVnxM1pUMAAPqYH.jpg:large\">No Support for html5 videos.</video>";//if the video doesn't play then display another picture of Dan
+  let theLink = "hello.mp4"; //hello.mp4 is video at end screen
+  document.getElementById("video_pop").innerHTML = "<video id=\"the_Video\" controls autoplay loop><source src=\"" + theLink + "\" type=\"video/mp4\" ><img src=\"https://pbs.twimg.com/media/DVnxM1pUMAAPqYH.jpg:large\">No Support for html5 videos.</video>"; //if the video doesn't play then display another picture of Dan
   document.getElementById("video_pop").style.display = "block";
   //some text to tell user game is over
   var y = document.getElementById("end");
@@ -244,17 +244,17 @@ function combine(row) {
   return row;
 }
 /*
-* Code in getTextColor function is from jelitter
-* URL = https://github.com/jelitter/2048-Coding-Train
-*/
+ * Code in getTextColor function is from jelitter
+ * URL = https://github.com/jelitter/2048-Coding-Train
+ */
 function getTextColor(value) {
   const colors = [color(249, 246, 242), color(119, 110, 101)];
   return (value >= 8) ? colors[0] : colors[1];
 }
 /*
-* Code in getColor function is from jelitter
-* URL = https://github.com/jelitter/2048-Coding-Train
-*/
+ * Code in getColor function is from jelitter
+ * URL = https://github.com/jelitter/2048-Coding-Train
+ */
 function getColor(value) {
   // Colors from http://scrambledeggsontoast.github.io/2014/05/09/writing-2048-elm/
   const colors = {
@@ -280,7 +280,7 @@ function clearBoard() {
     for (let j = 0; j < 4; j++) {
       strokeWeight(2);
       stroke('rgba(100%,100%,100%,.5)');
-      fill(238, 228, 218);//reset fill to white
+      fill(238, 228, 218); //reset fill to white
       rect(i * w + 5, j * w + 5, w, w, 10);
     }
   }
@@ -293,7 +293,7 @@ function drawGrid() {
     for (let j = 0; j < 4; j++) {
       let val = grid[i][j];
       //if its a new number color it purple then remove the location from array
-      fill(getColor(val));//by jelitter
+      fill(getColor(val)); //by jelitter
       if (colorNewNumber[0] === i && colorNewNumber[1] === j) {
         fill('rgba(33%, 16%, 50%, .30)');
         colorNewNumber.reverse();
@@ -308,7 +308,7 @@ function drawGrid() {
         let len = s.length - 1;
         let sizes = [64, 64, 52, 16];
         textSize(sizes[len]);
-        fill(getTextColor(val));//by jelitter 
+        fill(getTextColor(val)); //by jelitter 
         text(val, i * w + w / 2 + 5, j * w + w / 2 + 5);
       }
     }
@@ -336,8 +336,9 @@ function speedTesting() {
       default:
     }
     //stops the loop if the game is over
-    if (isGameOver()) { break; }
+    if (isGameOver()) {
+      break;
+    }
   }
   // console.log('testing finished');
 }
-
